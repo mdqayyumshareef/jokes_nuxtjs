@@ -1,15 +1,20 @@
 <template>
   <div>
-    <AppHeader />
-    <nuxt />
+    <div class="app-container">
+      <AppHeader />
+      <SideNav />
+      <nuxt />
+    </div>
   </div>
 </template>
 
 <script>
 import AppHeader from "../components/app-header";
+import SideNav from "../components/app-sidenav";
 export default {
   components: {
-    AppHeader
+    AppHeader,
+    SideNav
   }
 };
 </script>
@@ -32,6 +37,11 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  position: relative;
 }
 
 .button--green {

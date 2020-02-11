@@ -1,7 +1,10 @@
 <template>
   <header class="header">
+    <div class="burger" role="button" @click="$store.dispatch('nav/toggleSidebar')">
+      <img width="30px" height="30px" src="/menu-icon.svg" alt="hamburger-menu" />
+    </div>
     <h1 class="title">Jokes</h1>
-    <ul>
+    <ul class="link-items">
       <li>
         <nuxt-link to="/">Home</nuxt-link>
       </li>
@@ -26,7 +29,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 20px;
   border-bottom: 1px dotted #cccccc;
 }
 
@@ -35,15 +38,32 @@ export default {
   color: rgb(233, 164, 61);
 }
 
-.header ul {
-  display: flex;
-}
-
 .header li {
   display: inline-block;
   padding: 0.5rem 1rem;
   margin-right: 0.5rem;
   color: beige;
   background: #333;
+}
+
+.burger {
+  display: none;
+}
+
+.link-items {
+  display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .burger {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  .link-items {
+    display: none;
+  }
+  .header {
+    justify-content: flex-start;
+  }
 }
 </style>
